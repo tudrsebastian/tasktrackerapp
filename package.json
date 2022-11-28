@@ -1,0 +1,34 @@
+{
+  "name": "apprepo",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "docs",
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "build": "turbo run build --scope web-client --scope nest-server ",
+    "dev": "turbo run dev --scope web-client --scope nest-server ",
+    "lint": "turbo run lint --scope web-client --scope nest-server",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\" --scope web-client --scope nest-server",
+    "test": "turbo run test",
+    "web-client-lint": "turbo run lint --scope web-client",
+    "nest-server-lint": "turbo run lint --scope nest-server"
+
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@types/node": "^16.0.0",
+    "eslint-config-custom": "*",
+    "prettier": "latest",
+    "turbo": "latest",
+    "vitest": "^0.25.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "packageManager": "pnpm@8.13.2"
+}
